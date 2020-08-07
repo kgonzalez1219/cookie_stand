@@ -1,16 +1,12 @@
-
 /* header*/
 
-
 header {
-  
-  background-color: bisque;
+  background-color: salmon;
 }
 
 h1 {
   text-align: center;
 }
-
 
 nav {
   text-align: center;
@@ -20,22 +16,21 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
 }
 
 li {
-  display: inline;
+  float: left;
+  display: block;
+  padding: 8px;
+  background-color: seagreen;
 }
-
 
 #logo {
-  
+  align-content: center;
 }
-
 
 /*body*/
+
 body {
-  background-color:brown;
+  background-image: url();
 }
-
-
