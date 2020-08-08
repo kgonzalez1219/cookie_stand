@@ -40,6 +40,7 @@ var tokyo = {
   avgCookiePurch: 1.2,
   
   sales: []
+  
 };
 
 var dubai = {
