@@ -41,6 +41,11 @@ var tokyo = {
   
   sales: []
   
+
+  salesData: function() {
+    for(var i = 0; i < 14; i++){
+      this.sales.push(getRndInteger(this.minCust, this.maxCust))
+    }
 };
 
 var dubai = {
@@ -49,6 +54,12 @@ var dubai = {
   avgCookiePurch:3.7,
   
   sales: []
+
+
+  salesData: function() {
+    for(var i = 0; i < 14; i++){
+      this.sales.push(getRndInteger(this.minCust, this.maxCust))
+    }
 };
 
 var paris = {
@@ -59,6 +70,11 @@ var paris = {
   sales: []
 
 
+
+  salesData: function() {
+    for(var i = 0; i < 14; i++){
+      this.sales.push(getRndInteger(this.minCust, this.maxCust))
+    }
 };
 
 var Lima = {
@@ -68,5 +84,11 @@ var Lima = {
   
   sales: []
 
+
+
+  salesData: function() {
+    for(var i = 0; i < 14; i++){
+      this.sales.push(getRndInteger(this.minCust, this.maxCust))
+    }
 
 };
