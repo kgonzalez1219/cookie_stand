@@ -2,93 +2,90 @@
 
 // random interger from mdn/w3schools
 
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+//function getRndInteger(min, max) {
+// return Math.floor(Math.random() * /////(max - min)) + min;
+//}//
 
+
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',  '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 // object literals/store locations
 
 var seattle = {
-  minCust: 23, 
-  maxCust: 65, 
+  minCust: 23,
+  maxCust: 65,
   avgCookiePurch: 6.3,
-  
   sales: [],
+  getRandomInteger: function (min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
 
-
-  salesData: function() {
-    for(var i = 0; i < 14; i++){
-      this.sales.push(getRndInteger(this.minCust, this.maxCust))
+  salesData: function () {
+    for (var i = 0; i < hours.length; i++) {
+      this.sales.push(Math.ceil(this.getRandomInteger(this.minCust, this.maxCust) * this.avgCookiePurch));
     }
-    
+
+  },
+
+  render: function() {
+    this.salesData();
   }
-
-  
-  
-
-  
 
 };
 
-salesData(); 
-    console.log(seattle.sales)
+//seattle.salesData();
+console.lsog(seattle.sales);
 
-var tokyo = {
+
+
+
+
+
+
+
+/*    var tokyo = {
   minCust: 3,
   maxCust: 24,
   avgCookiePurch: 1.2,
-  
-  sales: []
-  
 
-  salesData: function() {
-    for(var i = 0; i < 14; i++){
-      this.sales.push(getRndInteger(this.minCust, this.maxCust))
-    }
+  sales: []
+
+
+  
 };
 
 var dubai = {
   minCust: 11,
   maxCust: 38,
   avgCookiePurch:3.7,
-  
+
   sales: []
 
 
-  salesData: function() {
-    for(var i = 0; i < 14; i++){
-      this.sales.push(getRndInteger(this.minCust, this.maxCust))
-    }
+  
 };
 
 var paris = {
   minCust: 20,
   maxCust: 38,
   avgCookiePurch: 2.3,
-  
+
   sales: []
 
 
 
-  salesData: function() {
-    for(var i = 0; i < 14; i++){
-      this.sales.push(getRndInteger(this.minCust, this.maxCust))
-    }
+  
 };
 
 var Lima = {
   minCust: 2,
   maxCust: 16,
   avgCookiePurch: 4.6,
-  
+
   sales: []
 
 
 
-  salesData: function() {
-    for(var i = 0; i < 14; i++){
-      this.sales.push(getRndInteger(this.minCust, this.maxCust))
-    }
+  
 
-};
+};*/
