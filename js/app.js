@@ -38,7 +38,11 @@ var seattle = {
 
 
 
-
+var section = document.getElementById('locationList');
+//console.log(section);
+var divEl = document.createElement('div');
+//console.log(divEl);
+section.append(divEl);
 
 
 
@@ -146,12 +150,7 @@ getRandomInteger: function (min, max) {
 
 
 
-// logic
 
 
 
-var section = document.getElementById('locationList');
-//console.log(section);
-var divEl = document.createElement('div');
-//console.log(divEl);
-section.append(divEl);
+
