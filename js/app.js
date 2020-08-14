@@ -2,9 +2,7 @@
 
 // random interger from mdn/w3schools
 
-//function getRndInteger(min, max) {
-// return Math.floor(Math.random() * /////(max - min)) + min;
-//}//
+
 
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
@@ -33,8 +31,8 @@ var seattle = {
 
 };
 
-//seattle.salesData();
-//console.log(seattle.sales);
+seattle.salesData();
+console.log(seattle.sales);
 
 
 
@@ -43,6 +41,15 @@ var section = document.getElementById('locationList');
 var divEl = document.createElement('div');
 //console.log(divEl);
 section.append(divEl);
+
+var ul = document.createElement('ul');
+section.append(ul);
+
+for (var i = 0; i < seattle.sales.length; i++) {
+  var li = document.createElement('li');
+  li.textContent = seattle.sales[i];
+  ul.appendChild(li);
+}
 
 
 
