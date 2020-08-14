@@ -111,7 +111,7 @@ for (var i = 0; i < tokyo.sales.length; i++) {
   ul.appendChild(li);
 }
 
-
+//dubai
 
 var dubai = {
   name: 'Dubai',
@@ -161,6 +161,9 @@ for (var i = 0; i < dubai.sales.length; i++) {
   ul.appendChild(li);
 }
 
+
+//paris
+
 var paris = {
   name: 'Paris',
   minCust: 20,
@@ -209,7 +212,9 @@ for (var i = 0; i < paris.sales.length; i++) {
   ul.appendChild(li);
 }
 
-var Lima = {
+//lima
+
+var lima = {
   name: 'Lima',
   minCust: 2,
   maxCust: 16,
