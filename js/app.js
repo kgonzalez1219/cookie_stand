@@ -15,9 +15,12 @@ function Store(name, minCust, maxCust, avgCookiePurch) {
   this.maxCust = maxCust;
   this.avgCookiePurch = avgCookiePurch;
   this.sales = [];
-  this.getRandomInteger = function (min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+  
+}
+
+//methods
+Store.prototype.getRandomInteger = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 //stores
