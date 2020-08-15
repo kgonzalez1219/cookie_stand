@@ -7,8 +7,44 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// object literals/store locations
+//constructors
 
+function Store(name, minCust, maxCust, avgCookiePurch) {
+  this.name = name;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookiePurch = avgCookiePurch;
+  this.sales = [];
+  this.getRandomInteger = function (min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+}
+
+var seattle = new Store('seattle', 23, 65, 6.3);
+
+console.log(seattle);
+
+/*function Store(name, minCust, maxCust, avgCookiePurch) {
+  
+}
+
+function Store(name, minCust, maxCust, avgCookiePurch) {
+  
+}
+
+function Store(name, minCust, maxCust, avgCookiePurch) {
+  
+}
+
+function Store(name, minCust, maxCust, avgCookiePurch) {
+  
+}
+
+
+
+
+
+//literals
 //seattle
 
 var seattle = {
@@ -262,11 +298,4 @@ for (var i = 0; i < lima.sales.length; i++) {
   var li = document.createElement('li');
   li.textContent = lima.sales[i];
   ul.appendChild(li);
-}
-
-
-
-
-
-
-
+}*/
