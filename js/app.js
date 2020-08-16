@@ -15,12 +15,7 @@ function Store(name, minCust, maxCust, avgCookiePurch) {
   this.maxCust = maxCust;
   this.avgCookiePurch = avgCookiePurch;
   this.sales = [];
-  
-}
-
-//methods
-Store.prototype.getRandomInteger = function (min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  this.total = 0;
 }
 
 //stores
@@ -29,6 +24,17 @@ var tokyo = new Store ('Tokyo', 3, 24, 1.2);
 var dubai = new Store ("Dubai", 11, 38, 3.7);
 var paris = new Store ('Paris', 20, 38, 2.3);
 var lima = new Store ('Lima', 2, 26, 4.6);
+
+//storesarray
+var allStores = [seattle, tokyo, dubai, paris, lima];
+
+//methods
+Store.prototype.getRandomInteger = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+
 
 /*
 
