@@ -33,9 +33,24 @@ Store.prototype.getRandomInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+//table
 
+var parentEl = document.getElementById('stores');
+var trElement = document.createElement('tr');
+var thElement = document.createElement('th');
 
+thElement.textContent = 'thing1';
+trElement.appendChild(thElement);
 
+thElement = document.createElement('th');
+thElement.textContent = 'thing2';
+trElement.appendChild(thElement);
+
+thElement = document.createElement('th');
+thElement.textContent = 'thinga';
+trElement.appendChild(thElement);
+
+parentEl.appendChild(trElement);
 /*
 
 

@@ -37,3 +37,8 @@ li {
 body {
   background-color: rgb(20, 109, 101);
 }
+
+/* table */
+table {
+  margin-bottom: 5px;
+}
