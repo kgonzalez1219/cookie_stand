@@ -30,9 +30,14 @@ var lima = new Store ('Lima', 2, 26, 4.6);
 var allStores = [seattle, tokyo, dubai, paris, lima];
 
 //methods
-Store.prototype.getRandomInteger = function (min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+Store.prototype.getRandomInteger = function () {
+  for (var i = 0; i< hours.length; i++) {
+    var customers = Math.ceil(this.getRandomInteger(this.minCust,this.maxCust) * this.avgCookiePurch);
+    this.sales.push(customers);
+    this.total = customers + this.total;
+  }
+} 
+
 
 //table
 
