@@ -16,6 +16,7 @@ function Store(name, minCust, maxCust, avgCookiePurch) {
   this.avgCookiePurch = avgCookiePurch;
   this.sales = [];
   this.total = 0;
+  
 }
 
 //stores
@@ -35,22 +36,39 @@ Store.prototype.getRandomInteger = function (min, max) {
 
 //table
 
-var parentEl = document.getElementById('stores');
-var trElement = document.createElement('tr');
-var thElement = document.createElement('th');
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
 
-thElement.textContent = 'thing1';
-trElement.appendChild(thElement);
+for (var i = 0; i < allStores.length; i++) {
+  var parentEl = document.getElementById('stores');
+  var trElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  var tdElement = document.createElement('td');
+  
+  thElement.textContent = [i];
+  trElement.appendChild(thElement);
+  
+  thElement = document.createElement('th');
+  thElement.textContent = [i];
+  trElement.appendChild(thElement);
+  
+  thElement = document.createElement('th');
+  thElement.textContent = [i];
+  trElement.appendChild(thElement);
+  
+  parentEl.appendChild(trElement);
+  
+  trElement = document.createElement('tr');
+  tdElement.textContent = seattle.name;
+  trElement.appendChild(tdElement);
+  parentEl.appendChild(trElement);
+}
 
-thElement = document.createElement('th');
-thElement.textContent = 'thing2';
-trElement.appendChild(thElement);
 
-thElement = document.createElement('th');
-thElement.textContent = 'thinga';
-trElement.appendChild(thElement);
 
-parentEl.appendChild(trElement);
 /*
 
 

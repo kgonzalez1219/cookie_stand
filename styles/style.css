@@ -41,4 +41,15 @@ body {
 /* table */
 table {
   margin-bottom: 5px;
+  border-spacing: 5px;
+}
+
+th {
+  background-color: turquoise;
+  background: transparent;
+}
+
+td {
+  background-color: violet;
+  background: transparent;
 }
