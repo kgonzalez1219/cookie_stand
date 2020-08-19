@@ -2,6 +2,8 @@
 
 // random interger from mdn/w3schools
 
+var allStores = [];
+var table = document.getElementById('table');
 
 
 
@@ -16,70 +18,58 @@ function Store(name, minCust, maxCust, avgCookiePurch) {
   this.avgCookiePurch = avgCookiePurch;
   this.sales = [];
   this.total = 0;
-  
+  allStores.push(this);
 }
 
 //stores
 var seattle = new Store('Seattle', 23, 65, 6.3);
-var tokyo = new Store ('Tokyo', 3, 24, 1.2);
-var dubai = new Store ("Dubai", 11, 38, 3.7);
-var paris = new Store ('Paris', 20, 38, 2.3);
-var lima = new Store ('Lima', 2, 26, 4.6);
+var tokyo = new Store('Tokyo', 3, 24, 1.2);
+var dubai = new Store("Dubai", 11, 38, 3.7);
+var paris = new Store('Paris', 20, 38, 2.3);
+var lima = new Store('Lima', 2, 26, 4.6);
 
-//storesarray
-var allStores = [seattle, tokyo, dubai, paris, lima];
+
+
 
 //methods
-Store.prototype.getRandomInteger = function () {
-  for (var i = 0; i< hours.length; i++) {
-    var customers = Math.ceil(this.getRandomInteger(this.minCust,this.maxCust) * this.avgCookiePurch);
-    this.sales.push(customers);
-    this.total = customers + this.total;
+Store.prototype.calcCustPerHour = function () {
+  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+};
+
+Store.prototype.calcAvgCookiePurch = function () {
+  for (var i = 0; i < hours.length; i++) {
+    var hourlyTotal = Math.ceil(this.calcCustPerHour() * this.sales);
+    this.sales.push(hourlyTotal);
+    this.total += hourlyTotal;
   }
-} 
+};
 
+// doing a thing...IDk
+Store.prototype.render = function () {
+  this.calcAvgCookiePurch();
+};
 
+function renderAllRows () {
+  for (var i = 0; i < allStores.length; i++) {
+    allStores[i].render();
+  }
+}
+ renderAllRows();
 
 //table
 
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
-
-var section = document.getElementById('stores');
-var theadEl = document.createElement('thead');
-section.appendChild(theadEl);
-
-var tbodyEl = document.createElement('tbody');
-section.appendChild(tbodyEl)
-
-var tfootEl = document.createElement('tfoot');
-section.appendChild(tfootEl);
-
-var trEl = document.createElement('tr');
-section.appendChild(trEl);
-
-var tdEl = document.createElement('td');
-section.appendChild(tdEl);
-
-
-
-tdEl.textContent = allStores[i].name;
-trEl.appendChild(tdEl);
-
-var totalSales = 0;
-
-for (var j = 0; j < allStores[i].sales.length; j++) {
-  tdEl = document.createElement('td');
-  tdEl.textContent = allStores[i].sales[j];
-  trEl.appendChild(tdEl);
-  totalSales += allStores[i].sales[j];
+function renderHeader () {
+  var thead = document.createElement('thead');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Locations\\Hours';
+  trEl.appendChild(thEl);
+  for ( var i = 0; i < hours.length; i++ ) {
+    var thEl = document.createElement('th');
+  thEl.textContent = 'Locations\\Hours';
+  trEl.appendChild(thEl);
+  }
 }
-
-
-
 
 
 
