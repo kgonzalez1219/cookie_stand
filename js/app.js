@@ -39,6 +39,7 @@ Store.prototype.getRandomInteger = function () {
 } 
 
 
+
 //table
 
 seattle.render();
@@ -47,30 +48,39 @@ dubai.render();
 paris.render();
 lima.render();
 
-for (var i = 0; i < allStores.length; i++) {
-  var parentEl = document.getElementById('stores');
-  var trElement = document.createElement('tr');
-  var thElement = document.createElement('th');
-  var tdElement = document.createElement('td');
-  
-  thElement.textContent = [i];
-  trElement.appendChild(thElement);
-  
-  thElement = document.createElement('th');
-  thElement.textContent = [i];
-  trElement.appendChild(thElement);
-  
-  thElement = document.createElement('th');
-  thElement.textContent = [i];
-  trElement.appendChild(thElement);
-  
-  parentEl.appendChild(trElement);
-  
-  trElement = document.createElement('tr');
-  tdElement.textContent = seattle.name;
-  trElement.appendChild(tdElement);
-  parentEl.appendChild(trElement);
+var section = document.getElementById('stores');
+var theadEl = document.createElement('thead');
+section.appendChild(theadEl);
+
+var tbodyEl = document.createElement('tbody');
+section.appendChild(tbodyEl)
+
+var tfootEl = document.createElement('tfoot');
+section.appendChild(tfootEl);
+
+var trEl = document.createElement('tr');
+section.appendChild(trEl);
+
+var tdEl = document.createElement('td');
+section.appendChild(tdEl);
+
+
+
+tdEl.textContent = allStores[i].name;
+trEl.appendChild(tdEl);
+
+var totalSales = 0;
+
+for (var j = 0; j < allStores[i].sales.length; j++) {
+  tdEl = document.createElement('td');
+  tdEl.textContent = allStores[i].sales[j];
+  trEl.appendChild(tdEl);
+  totalSales += allStores[i].sales[j];
 }
+
+
+
+
 
 
 
