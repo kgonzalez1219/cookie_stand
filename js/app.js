@@ -3,22 +3,36 @@
 // random interger from mdn/w3schools
 
 var allStores = [];
-var table = document.getElementById('table');
-
-
-
+var table = document.getElementById('stores');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 //constructor
 
-function Store(name, minCust, maxCust, avgCookiePurch) {
-  this.name = name;
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgCookiePurch = avgCookiePurch;
-  this.sales = [];
-  this.total = 0;
-  allStores.push(this);
+class Store {
+  constructor(name, minCust, maxCust, avgCookiePurch) {
+    this.name = name;
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.avgCookiePurch = avgCookiePurch;
+    this.sales = [];
+    this.total = 0;
+    allStores.push(this);
+  }
+  //methods
+  calcCustPerHour() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+  }
+  calcAvgCookiePurch() {
+    for (var i = 0; i < hours.length; i++) {
+      var hourlyTotal = Math.ceil(this.calcCustPerHour() * this.sales);
+      this.sales.push(hourlyTotal);
+      this.total += hourlyTotal;
+    }
+  }
+  // doing a thing...IDk
+  render() {
+    this.calcAvgCookiePurch();
+  }
 }
 
 //stores
@@ -31,45 +45,40 @@ var lima = new Store('Lima', 2, 26, 4.6);
 
 
 
-//methods
-Store.prototype.calcCustPerHour = function () {
-  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
-};
 
-Store.prototype.calcAvgCookiePurch = function () {
-  for (var i = 0; i < hours.length; i++) {
-    var hourlyTotal = Math.ceil(this.calcCustPerHour() * this.sales);
-    this.sales.push(hourlyTotal);
-    this.total += hourlyTotal;
-  }
-};
 
-// doing a thing...IDk
-Store.prototype.render = function () {
-  this.calcAvgCookiePurch();
-};
 
-function renderAllRows () {
+function renderAllRows() {
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
 }
- renderAllRows();
+
+
+
 
 //table
 
-function renderHeader () {
+function renderHeader() {
   var thead = document.createElement('thead');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Locations\\Hours';
   trEl.appendChild(thEl);
-  for ( var i = 0; i < hours.length; i++ ) {
-    var thEl = document.createElement('th');
-  thEl.textContent = 'Locations\\Hours';
-  trEl.appendChild(thEl);
+  for (var i = 0; i < hours.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
   }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Totals';
+  trEl.appendChild(thEl);
+  thead.appendChild(trEl);
+  table.appendChild(thead);
 }
+
+renderAllRows();
+renderHeader();
 
 
 
